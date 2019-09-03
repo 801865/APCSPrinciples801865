@@ -19,15 +19,16 @@ function draw() {
 }
 
 function loadBalls(n){
-  mainball = new Ball(random(width), random(height), random(-10, 10), random(-10, 10) -1);
+  mainball = new Ball(random(width/2), random(height/2), random(-5, 5), random(-5, 5) -1);
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(height), random(-10, 10), random(-10, 10) i);
   }
 }
 
 function runBalls(){
+  mainBall.run();
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }
-  
+
 }
