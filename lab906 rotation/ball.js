@@ -4,9 +4,9 @@ class Ships{
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255))
-    this.w = 3
+    this.w = 100
     this.id = id;
-    if(this.id < 0)(this.w = 50)
+    if(this.id < 0)(this.w = 100)
   }
 
   run(){
@@ -64,7 +64,7 @@ class Ships{
 
   render(){
     fill(this.clr);
-    ellipse(this.loc.x, this.loc.y, this.w, this.w)
+    ellipse(this.loc.x, this.loc.y, this.w, this.w);
     this.clr = color(random(255), random(255), random(255))
   }
 
