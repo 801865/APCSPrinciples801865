@@ -30,7 +30,8 @@ function runShips(){
   attraction.run();
   repulsion.run();
   for(var i = 0; i < ships.length; i++){
-    ships[i].run();
+    //ships[i].run();
+    ships[i].run2();
   }
 
 }

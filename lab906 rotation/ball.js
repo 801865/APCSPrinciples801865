@@ -3,7 +3,7 @@ class Ships{
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
-    this.clr = color(random(255), random(255), random(255))
+    //this.clr = color(random(255), random(255), random(255))
     this.w = 100
     this.id = id;
     if(this.id < 0)(this.w = 100)
