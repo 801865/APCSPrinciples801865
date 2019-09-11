@@ -1,31 +1,35 @@
-//ships.js
-run2(
+class Ships{
+  constructor(x, y, dx, dy){
+    this.loc = createVector(x,y);
+    this.vel = createVector(dx,dy);
+    this.acc = createVector(0,0);
+    this.clr = color(random(255), random(255), random(255))
+    this.w = 10
+}
+
+run(){
   this.checkEdges();
-  //this.update();
+  this.update();
   this.render();
-)
-  render(
-    push();
-    translate(this.loc.x, this.loc.y);
-    rotate(this.angle);
-    triangle(-5,8,5,8,0,-8)
-    pop();
-)
-  checkEdges(
-    if(this.loc.x < 0){
-      this.vel.x = -this.vel.x;
-      this.clr = color(random(255), random(255), random(255))
-  }
-    if(this.loc.x > width){
-      this.vel.x = -this.vel.x;
-      this.clr = color(random(255), random(255), random(255))
-  }
-    if(this.loc.y < 0){
-      this.vel.y = -this.vel.y;
-      this.clr = color(random(255), random(255), random(255))
-  }
-    if(this.loc.y > height){
-      this.vel.y = -this.vel.y;
-      this.clr = color(random(255), random(255), random(255))
-  }
-)
+}
+
+checkEdges(){
+  if(this.loc.x < 0) this.loc.x = width;
+  if(this.loc.x > width) this.loc.x = 0;
+  if(this.loc.y < 0) this.loc.y = height;
+  if(this.loc.y > height) this.loc.y = 0;
+}
+
+update(){
+  this.vel.add(this.acc)
+  this.loc.add(this.vel)
+  this.vel.limit(2)
+}
+
+render(){
+  fill(this.clr);
+  ellipse(this.loc.x, this.loc.y, this.w, this.w);
+  this.clr = color(random(255), random(255), random(255))
+}
+
+}//end of Ships class
