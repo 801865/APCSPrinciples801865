@@ -53,12 +53,7 @@ update(){
     this.acc.mult(0.5);
   }
 }
-pop();
-  translate(this.loc.x, this.loc.y);
-  rotate(this.angle);
-  this.vel.heading();
-  triangle(-5, 8, 5, 8, 0, -8);
-pop();
+
   this.vel.add(this.acc)
   this.loc.add(this.vel)
   this.vel.limit(2)
@@ -68,6 +63,12 @@ render(){
   fill(this.clr);
   //ellipse(this.loc.x, this.loc.y, this.w, this.w);
   //this.clr = color(200, 200, 200)
+  this.angle= this.vel.heading() + PI/2;
+  push();
+    translate(this.loc.x, this.loc.y);
+    rotate(this.angle);
+    triangle(-5, 8, 5, 8, 0, -8);
+  pop();
 }
 
 }//end of Ships class
