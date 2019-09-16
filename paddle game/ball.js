@@ -1,12 +1,10 @@
-class Balls{
-  constructor(x, y, dx, dy, id){
+class Ball{
+  constructor(x, y, dx, dy){
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255))
-    this.w = 10
-    this.id = id;
-    if(this.id < 0)(this.w = 20)
+    this.s = 10
   }
 
   run(){
@@ -64,7 +62,17 @@ class Balls{
 
   render(){
     fill(this.clr);
-    ellipse(this.loc.x, this.loc.y, this.w, this.w);
+    ellipse(this.loc.x, this.loc.y, this.s, this.s);
+    this.clr = color(random(250), random(250), random(250))
+    if( this.loc.x > paddle.loc.x &&
+      this.loc.x < paddle.loc.x + w &&
+      this.loc.y > paddle.loc.y &&
+      this.loc.y < paddle.loc.y + h
+    ){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }//end ball
