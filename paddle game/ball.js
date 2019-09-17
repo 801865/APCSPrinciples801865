@@ -2,7 +2,7 @@ class Ball{
   constructor(x, y, dx, dy, w, h){
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
-    this.acc = createVector(0,0.01);
+    this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255))
     this.s = 10
     w = 150;
@@ -33,22 +33,22 @@ class Ball{
   update(){
     this.vel.add(this.acc)
     this.loc.add(this.vel)
-    //this.vel.limit(2)
+    this.vel.limit(2)
     var hittingPaddle
-    if( this.loc.x > paddle.loc.x &&
-      this.loc.x < paddle.loc.x + this.w &&
+    if(this.loc.x > paddle.loc.x &&
+      this.loc.x < (paddle.loc.x + this.w) &&
       this.loc.y > paddle.loc.y &&
-      this.loc.y < paddle.loc.y + this.h
+      this.loc.y < (paddle.loc.y + this.h)
     ){
-      hittingPaddle === true;
+      hittingPaddle = true;
     }else{
-      hittingPaddle === false;
+      hittingPaddle = false;
     }
-  }
-  if(hittingPaddle = true){
-    this.vel.x = -2*this.vel.x;
-    this.vel.y = -2*this.vel.y;
-  }
+    if (hittingPaddle === true){
+     this.vel.x = -this.vel.x;
+     this.vel.y = -this.vel.y;
+    }
+}
 
   render(){
     fill(this.clr);

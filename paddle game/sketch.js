@@ -22,7 +22,7 @@ function draw() {
 function loadBalls(n){
   paddle = new Paddle;
   for(var i = 0; i < n; i++){
-    balls[i] = new Ball(random(width), random(0,50), 0, 0, i);
+    balls[i] = new Ball(random(width), random(0,50), (10,-10), (10,-10), i);
   }
 }
 
