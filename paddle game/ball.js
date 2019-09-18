@@ -1,10 +1,11 @@
 class Ball{
   constructor(x, y, dx, dy, w, h){
+    this.isColliding = false
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255))
-    this.s = 10
+    this.s = 20
     w = 150;
     h = 30;
   }
@@ -34,21 +35,17 @@ class Ball{
     this.vel.add(this.acc)
     this.loc.add(this.vel)
     this.vel.limit(2)
-    var hittingPaddle
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < (paddle.loc.x + this.w) &&
       this.loc.y > paddle.loc.y &&
       this.loc.y < (paddle.loc.y + this.h)
     ){
-      hittingPaddle = true;
+      this.isColliding = true;
     }else{
-      hittingPaddle = false;
+      this.isColliding = false;
     }
-    if (hittingPaddle === true){
-     this.vel.x = -this.vel.x;
-     this.vel.y = -this.vel.y;
-    }
-}
+
+}//end of update
 
   render(){
     fill(this.clr);
