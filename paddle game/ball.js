@@ -1,6 +1,5 @@
 class Ball{
   constructor(x, y, dx, dy, w, h){
-    this.isColliding = false
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
@@ -35,17 +34,19 @@ class Ball{
     this.vel.add(this.acc)
     this.loc.add(this.vel)
     this.vel.limit(2)
+}//end of update
+
+  isColliding(){
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < (paddle.loc.x + this.w) &&
       this.loc.y > paddle.loc.y &&
       this.loc.y < (paddle.loc.y + this.h)
     ){
-      this.isColliding = true;
+      return true;
     }else{
-      this.isColliding = false;
+      return false;
     }
-
-}//end of update
+  }
 
   render(){
     fill(this.clr);

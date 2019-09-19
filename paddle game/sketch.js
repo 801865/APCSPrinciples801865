@@ -30,5 +30,10 @@ function runBalls(){
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }
+  for(var i = balls.length - 1; i >=0; i--){
+    if(balls[i].isColliding()){
+      balls.splice(i, 1)
+    }
+  }
 
 }
