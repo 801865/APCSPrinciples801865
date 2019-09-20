@@ -1,23 +1,27 @@
 // paddle.js
 class Paddle{
-  constructor(x, y, dx, dy, w, h){
-    this.loc = createVector(y);
-    this.vel = createVector(dy);
-    this.acc = createVector(0,0);
+  constructor(x, y, w, h){
+    this.loc = createVector(x,y);
     this.clr = color(random(255), random(255), random(255))
-    this.w = 150
-    this.h = 30
+    this.w = w;
+    this.h = h;
   }
 
 run(){
   this.render();
+  this.update();
+}
+
+update(){
+  //this.loc.add(this.mouseX, 600)
+
 }
 
 render(){
-  rect(mouseX, 600, this.w, this.h);
-  this.loc.add(this.vel)
   fill(this.clr);
-  this.clr = color(random(250), random(250), random(250))
+  rect(mouseX, this.loc.y, this.w, this.h);
+
+  //this.clr = color(random(250), random(250), random(250))
 }
 
 }//end of paddle class

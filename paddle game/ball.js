@@ -4,9 +4,7 @@ class Ball{
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255))
-    this.s = 20
-    w = 150;
-    h = 30;
+    this.s = 20;
   }
 
   run(){
@@ -33,15 +31,15 @@ class Ball{
   update(){
     this.vel.add(this.acc)
     this.loc.add(this.vel)
-    this.vel.limit(2)
+    this.vel.limit(6)
 }//end of update
 
   isColliding(){
-    if(this.loc.x > paddle.loc.x &&
-      this.loc.x < (paddle.loc.x + this.w) &&
-      this.loc.y > paddle.loc.y &&
-      this.loc.y < (paddle.loc.y + this.h)
-    ){
+    if( this.loc.x > paddle.loc.x &&
+        this.loc.x < (paddle.loc.x + paddle.w) &&
+        this.loc.y > paddle.loc.y &&
+        this.loc.y < (paddle.loc.y + paddle.h))
+    {
       return true;
     }else{
       return false;

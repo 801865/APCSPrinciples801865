@@ -9,7 +9,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
   fill(200, 30, 150);
-  loadBalls(10);
+  loadBalls(3);
 }
 
 //  The draw function is called @ 30 fps
@@ -19,7 +19,7 @@ function draw() {
 }
 
 function loadBalls(n){
-  paddle = new Paddle;
+  paddle = new Paddle(width/2, height-150, 150, 30);
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
   }
@@ -30,9 +30,11 @@ function runBalls(){
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }
-  for(var i = balls.length - 1; i >=0; i--){
+
+  for(var i = balls.length - 1; i >= 0; i--){
     if(balls[i].isColliding()){
-      balls.splice(i, 1)
+        console.log(balls.length);
+        balls.splice(i, 1)
     }
   }
 
