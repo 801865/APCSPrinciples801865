@@ -34,7 +34,7 @@ class Ball{
     this.vel.limit(5)
 }//end of update
 
-  isColliding(){
+isColliding(){
     if( this.loc.x > paddle.loc.x &&
         this.loc.x < (paddle.loc.x + paddle.w) &&
         this.loc.y > paddle.loc.y &&

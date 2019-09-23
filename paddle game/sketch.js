@@ -10,19 +10,19 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
   fill(200, 30, 150);
-  //loadBalls(3);
+  loadBalls(3);
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   if(gameState === 1){
-    startGame()
+    startGame();
   }else if(gameState === 2){
-    playGame()
+    playGame();
   }else if(gameState === 3){
-    endGame()
+    endGame();
   }
-  //background(20, 20, 20, 100);
+  background(20, 20, 20, 100);
   //runBalls();
 }
 
@@ -35,13 +35,6 @@ function startGame(){
 }
 
 function playGame(){
-  function loadBalls(n){
-    paddle = new Paddle(width/2, height-150, 150, 30);
-    for(var i = 0; i < n; i++){
-      balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
-    }
-  }
-  function runBalls(){
     paddle.run();
     for(var i = 0; i < balls.length; i++){
       balls[i].run();
@@ -53,8 +46,6 @@ function playGame(){
           balls.splice(i, 1)
       }
     }
-
-  }//end of runBalls
 }//end of playGame
 
 function endGame(){
@@ -63,4 +54,11 @@ function endGame(){
   textSize(100)
   fill(255)
   text('game has ended', 10, 20)
+}
+
+function loadBalls(n){
+  paddle = new Paddle(width/2, height-150, 150, 30);
+  for(var i = 0; i < n; i++){
+    balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
+  }
 }
