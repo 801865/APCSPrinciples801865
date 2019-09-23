@@ -3,39 +3,64 @@
 //  This is a comment
 var balls = []
 var paddle;
+var gameState = 2
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
   fill(200, 30, 150);
-  loadBalls(3);
+  //loadBalls(3);
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-  background(20, 20, 20, 100);
-  runBalls();
+  if(gameState === 1){
+    startGame()
+  }else if(gameState === 2){
+    playGame()
+  }else if(gameState === 3){
+    endGame()
+  }
+  //background(20, 20, 20, 100);
+  //runBalls();
 }
 
-function loadBalls(n){
-  paddle = new Paddle(width/2, height-150, 150, 30);
-  for(var i = 0; i < n; i++){
-    balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
-  }
+function startGame(){
+  textAlign(CENTER)
+  translate(400, 400)
+  textSize(100)
+  fill(255)
+  text('Paddle Game', 10, 20)
 }
 
-function runBalls(){
-  paddle.run();
-  for(var i = 0; i < balls.length; i++){
-    balls[i].run();
-  }
-
-  for(var i = balls.length - 1; i >= 0; i--){
-    if(balls[i].isColliding()){
-        console.log(balls.length);
-        balls.splice(i, 1)
+function playGame(){
+  function loadBalls(n){
+    paddle = new Paddle(width/2, height-150, 150, 30);
+    for(var i = 0; i < n; i++){
+      balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
     }
   }
+  function runBalls(){
+    paddle.run();
+    for(var i = 0; i < balls.length; i++){
+      balls[i].run();
+    }
 
+    for(var i = balls.length - 1; i >= 0; i--){
+      if(balls[i].isColliding()){
+          console.log(balls.length);
+          balls.splice(i, 1)
+      }
+    }
+
+  }//end of runBalls
+}//end of playGame
+
+function endGame(){
+  textAlign(CENTER)
+  translate(400, 400)
+  textSize(100)
+  fill(255)
+  text('game has ended', 10, 20)
 }

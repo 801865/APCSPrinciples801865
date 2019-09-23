@@ -31,7 +31,7 @@ class Ball{
   update(){
     this.vel.add(this.acc)
     this.loc.add(this.vel)
-    this.vel.limit(6)
+    this.vel.limit(5)
 }//end of update
 
   isColliding(){
@@ -49,6 +49,6 @@ class Ball{
   render(){
     fill(this.clr);
     ellipse(this.loc.x, this.loc.y, this.s, this.s);
-    this.clr = color(random(250), random(250), random(250))
+    //this.clr = color(random(250), random(250), random(250))
   }
 }//end ball
