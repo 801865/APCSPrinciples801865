@@ -3,7 +3,8 @@
 //  This is a comment
 var balls = []
 var paddle;
-var gameState = 2
+var gameState = 1
+var buttons = []
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -11,6 +12,7 @@ function setup() {
   background(20, 20, 20);
   fill(200, 30, 150);
   loadBalls(3);
+  loadButtons(3);
 }
 
 //  The draw function is called @ 30 fps
@@ -27,11 +29,13 @@ function draw() {
 }
 
 function startGame(){
-  textAlign(CENTER)
-  translate(400, 400)
-  textSize(100)
-  fill(255)
-  text('Paddle Game', 10, 20)
+  textAlign(CENTER);
+  translate(400, 400);
+  textSize(100);
+  fill(255);
+  text('Paddle Game', 10, 20);
+  buttons[1].run();
+  buttons[2].run();
 }
 
 function playGame(){
@@ -61,4 +65,9 @@ function loadBalls(n){
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
   }
+}
+
+function loadButtons(){
+    buttons[1] = new Button(width, height, this.x, this.y)
+    buttons[2] = new Button(width, height, this.x + 200, this.y)
 }
