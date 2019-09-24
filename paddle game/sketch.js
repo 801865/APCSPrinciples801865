@@ -32,10 +32,23 @@ function startGame(){
   textAlign(CENTER);
   translate(400, 400);
   textSize(100);
-  fill(255);
-  text('Paddle Game', 10, 20);
+  fill(random(255), random(255), random(255));
+  text('Hit', 10, 20);
   buttons[1].run();
   buttons[2].run();
+  buttons[3].run();
+  translate(-205, 180);
+  textSize(40);
+  fill(255);
+  text('easy', 5, 30);
+  translate(200, 0);
+  textSize(25);
+  fill(255);
+  text('medium', 5, 30);
+  translate(200, 0);
+  textSize(40);
+  fill(255);
+  text('hard', 5, 30);
 }
 
 function playGame(){
@@ -68,6 +81,7 @@ function loadBalls(n){
 }
 
 function loadButtons(){
-    buttons[1] = new Button(width, height, this.x, this.y)
-    buttons[2] = new Button(width, height, this.x + 200, this.y)
+    buttons[1] = new Button(-200, 200)
+    buttons[2] = new Button(0, 200)
+    buttons[3] = new Button(200, 200)
 }
