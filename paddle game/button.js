@@ -1,25 +1,25 @@
+//Danny Ramirez
+//9/25/19
 //button.js
 class Button{
-  constructor(x, y){
-    this.x = x
-    this.y = y
-    this.s = 100;
-    this.clr = color(random(255), random(255), random(255))
+  constructor(x, y, w, h, msg, clr){
+    this.loc = createVector(x, y);
+    this.w = w;
+    this.h = h;
+    this.clr = clr;
+    this.message = msg;
   }
 
   run(){
     this.render();
-    this.update();
   }
 
   render(){
     fill(this.clr);
-    ellipse(this.x, this.y, this.s, this.s)
+    rect(this.x, this.y, this.w, this.h);
+    textSize(20);
+    fill(255);
+    text(this.message, this.x, this.y)
   }
 
-  update(){
-    function mouseClicked(x, y, s){
-      console.log(1);
-    }
-  }
 }

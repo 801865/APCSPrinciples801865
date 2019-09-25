@@ -1,3 +1,5 @@
+//Danny Ramirez
+//9/25/19
 // paddle.js
 class Paddle{
   constructor(x, y, w, h){

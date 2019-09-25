@@ -1,3 +1,6 @@
+//Danny Ramirez
+//9/25/19
+//ball.js
 class Ball{
   constructor(x, y, dx, dy, w, h){
     this.loc = createVector(x,y);

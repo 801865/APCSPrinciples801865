@@ -4,7 +4,7 @@
 var balls = []
 var paddle;
 var gameState = 1
-var buttons = []
+var btnEasy, btnHard, btnMedium, btnInstructions;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -25,7 +25,6 @@ function draw() {
     endGame();
   }
   background(20, 20, 20, 100);
-  //runBalls();
 }
 
 function startGame(){
@@ -34,21 +33,10 @@ function startGame(){
   textSize(100);
   fill(random(255), random(255), random(255));
   text('Hit', 10, 20);
-  buttons[1].run();
-  buttons[2].run();
-  buttons[3].run();
-  translate(-205, 180);
-  textSize(40);
-  fill(255);
-  text('easy', 5, 30);
-  translate(200, 0);
-  textSize(25);
-  fill(255);
-  text('medium', 5, 30);
-  translate(200, 0);
-  textSize(40);
-  fill(255);
-  text('hard', 5, 30);
+  btnEasy.run();
+  btnMedium.run();
+  btnHard.run();
+  btnInstructions.run();
 }
 
 function playGame(){
@@ -81,7 +69,8 @@ function loadBalls(n){
 }
 
 function loadButtons(){
-    buttons[1] = new Button(-200, 200)
-    buttons[2] = new Button(0, 200)
-    buttons[3] = new Button(200, 200)
+    btnEasy = new Button(-20, 20, 10, 10, 'Easy', color(20, 20, 20))
+    btnMedium = new Button(-20, 20, 30, 20, 'Medium', color(255, 255, 255))
+    btnHard = new Button(-20, 20, 30, 20, 'Hard', color(0, 10, 0))
+    btnInstructions = new Button(-20, 20, 100, 30, 'Instructions', color(0, 0, 0))
 }
