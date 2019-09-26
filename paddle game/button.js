@@ -15,11 +15,11 @@ class Button{
   }
 
   render(){
-    fill(this.clr);
-    rect(this.x, this.y, this.w, this.h);
     textSize(20);
     fill(255);
-    text(this.message, this.x, this.y)
+    text(this.message, this.x, this.y);
+    fill(this.clr);
+    rect(this.x, this.y, this.w, this.h);
   }
 
 }

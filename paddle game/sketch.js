@@ -28,15 +28,24 @@ function draw() {
 }
 
 function startGame(){
-  textAlign(CENTER);
-  translate(400, 400);
-  textSize(100);
-  fill(random(255), random(255), random(255));
-  text('Hit', 10, 20);
   btnEasy.run();
   btnMedium.run();
   btnHard.run();
-  btnInstructions.run();
+  textAlign(CENTER);
+  translate(400, 200);
+  textSize(100);
+  fill(random(255), random(255), random(255));
+  text('Hit', 10, 20);
+  translate(0, 100);
+  textSize(30);
+  fill(255);
+  text('Instructions:', 10, 20);
+  translate(0, 25);
+  text('Move the mouse in order to move the paddle.You will gain', 10, 20);
+  translate(0, 25);
+  text('points if the balls hit the top of the paddle. You will lose a', 10, 20);
+  translate(0, 25);
+  text('if a ball hits the bottom of the paddle. Good Luck!', 10, 20);
 }
 
 function playGame(){
@@ -69,8 +78,7 @@ function loadBalls(n){
 }
 
 function loadButtons(){
-    btnEasy = new Button(-20, 20, 10, 10, 'Easy', color(20, 20, 20))
-    btnMedium = new Button(-20, 20, 30, 20, 'Medium', color(255, 255, 255))
-    btnHard = new Button(-20, 20, 30, 20, 'Hard', color(0, 10, 0))
-    btnInstructions = new Button(-20, 20, 100, 30, 'Instructions', color(0, 0, 0))
+    btnEasy = new Button(200, 600, 10, 10, 'Easy', color(20, 20, 20))
+    btnMedium = new Button(400, 600, 30, 20, 'Medium', color(255, 255, 255))
+    btnHard = new Button(600, 600, 30, 20, 'Hard', color(0, 10, 0))
 }
