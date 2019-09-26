@@ -28,24 +28,28 @@ function draw() {
 }
 
 function startGame(){
+  textAlign(CENTER);
+  push();
+    translate(400, 200);
+    textSize(100);
+    fill(random(255), random(255), random(255));
+    text('Hit', 10, 20);
+  pop();
+  push();
+    translate(400, 300);
+    textSize(30);
+    fill(255);
+    text('Instructions:', 10, 20);
+    translate(0, 25);
+    text('Move the mouse in order to move the paddle.You will gain', 10, 20);
+    translate(0, 25);
+    text('points if the balls hit the top of the paddle. You will lose a', 10, 20);
+    translate(0, 25);
+    text(' life if a ball hits the bottom of the paddle. Good Luck!', 10, 20);
+  pop();
   btnEasy.run();
   btnMedium.run();
   btnHard.run();
-  textAlign(CENTER);
-  translate(400, 200);
-  textSize(100);
-  fill(random(255), random(255), random(255));
-  text('Hit', 10, 20);
-  translate(0, 100);
-  textSize(30);
-  fill(255);
-  text('Instructions:', 10, 20);
-  translate(0, 25);
-  text('Move the mouse in order to move the paddle.You will gain', 10, 20);
-  translate(0, 25);
-  text('points if the balls hit the top of the paddle. You will lose a', 10, 20);
-  translate(0, 25);
-  text('if a ball hits the bottom of the paddle. Good Luck!', 10, 20);
 }
 
 function playGame(){

@@ -12,14 +12,23 @@ class Button{
 
   run(){
     this.render();
+    this.update();
   }
 
   render(){
+    fill(222);
+    rect(this.x, this.y, this.w, this.h);
     textSize(20);
     fill(255);
-    text(this.message, this.x, this.y);
-    fill(this.clr);
-    rect(this.x, this.y, this.w, this.h);
+    text(this.message, 0, 0);
   }
 
+  update(){
+    if( mouseIsPressed && mouseX > this.x &&
+      mouseX < (this.x + this.w) &&
+      mouseY > this.y &&
+      mouseY < (this.y + this.h)){
+        gameState === 2;
+      }
+  }
 }
