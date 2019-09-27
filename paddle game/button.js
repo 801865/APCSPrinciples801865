@@ -3,7 +3,8 @@
 //button.js
 class Button{
   constructor(x, y, w, h, msg, clr){
-    this.loc = createVector(x, y);
+    this.x = x;
+    this.y = y;
     this.w = w;
     this.h = h;
     this.clr = clr;
@@ -16,11 +17,11 @@ class Button{
   }
 
   render(){
-    fill(222);
+    fill(this.clr);
     rect(this.x, this.y, this.w, this.h);
     textSize(20);
     fill(255);
-    text(this.message, 0, 0);
+    text(this.message, this.x, this.y);
   }
 
   update(){
@@ -28,7 +29,9 @@ class Button{
       mouseX < (this.x + this.w) &&
       mouseY > this.y &&
       mouseY < (this.y + this.h)){
-        gameState === 2;
-      }
+        gameState = 2;
+        gameMode = this.message;
+        console.log(this.message);
+    }
   }
 }
