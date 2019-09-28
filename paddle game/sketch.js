@@ -56,11 +56,24 @@ function startGame(){
 }
 
 function playGame(){
-  paddle.run();
+  if(gameMode = 'Easy'){
     for(var i = 0; i < balls.length; i++){
       balls[i].run();
   }
+}
 
+if(gameMode = 'Medium'){
+  for(var i = 0; i < balls.length; i++){
+    balls[i].run();
+  }
+}
+
+if(gameMode = 'Hard'){
+  for(var i = 0; i < balls.length; i++){
+    balls[i].run();
+  }
+}
+  paddle.run();
   for(var i = balls.length - 1; i >= 0; i--){
     if(balls[i].isColliding()){
           console.log(balls.length);
