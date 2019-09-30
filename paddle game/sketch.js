@@ -67,8 +67,8 @@ function playGame(){
 
   for(var i = balls.length - 1; i >= 0; i--){
     if(balls[i].isColliding()){
-          console.log(balls.length);
-          balls.splice(i, 1);
+          console.log(balls.length)
+          balls.splice(i, 1)
           score = score + 100;
     }
   }
@@ -78,6 +78,13 @@ function playGame(){
     text('score:', 10, 20);
     translate(60, 0);
     text(score, 10, 20);
+  pop();
+  push();
+    translate(10,20);
+    fill(255);
+    text('Health:', 10, 20);
+    translate(70, 0);
+    text(health, 10, 20)
   pop();
 }//end of playGame
 
