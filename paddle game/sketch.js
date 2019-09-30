@@ -6,6 +6,7 @@ var paddle;
 var gameState = 1
 var btnEasy, btnHard, btnMedium;
 var gameMode;
+var score, health;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -13,6 +14,8 @@ function setup() {
   fill(200, 30, 150);
   loadButtons(3);
   loadBalls(3);
+  score = 0;
+  health = 5;
 }
 
 //  The draw function is called @ 30 fps
@@ -56,30 +59,26 @@ function startGame(){
 }
 
 function playGame(){
-  if(gameMode = 'Easy'){
-    for(var i = 0; i < balls.length; i++){
-      balls[i].run();
-  }
-}
-
-if(gameMode = 'Medium'){
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }
-}
 
-if(gameMode = 'Hard'){
-  for(var i = 0; i < balls.length; i++){
-    balls[i].run();
-  }
-}
   paddle.run();
+
   for(var i = balls.length - 1; i >= 0; i--){
     if(balls[i].isColliding()){
           console.log(balls.length);
-          balls.splice(i, 1)
+          balls.splice(i, 1);
+          score = score + 100;
     }
   }
+  push();
+    translate(690, 20);
+    fill(255);
+    text('score:', 10, 20);
+    translate(60, 0);
+    text(score, 10, 20);
+  pop();
 }//end of playGame
 
 function endGame(){

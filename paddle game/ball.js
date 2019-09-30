@@ -34,15 +34,14 @@ class Ball{
   update(){
     this.vel.add(this.acc)
     this.loc.add(this.vel)
-    this.vel.limit(2)
+    this.vel.limit(5);
 }//end of update
 
 isColliding(){
     if( this.loc.x > paddle.loc.x &&
         this.loc.x < (paddle.loc.x + paddle.w) &&
         this.loc.y > paddle.loc.y &&
-        this.loc.y < (paddle.loc.y + paddle.h))
-    {
+        this.loc.y < (paddle.loc.y + paddle.h)){
       return true;
     }else{
       return false;

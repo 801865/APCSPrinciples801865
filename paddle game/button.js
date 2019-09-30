@@ -31,7 +31,17 @@ class Button{
       mouseY < (this.y + this.h)){
         gameState = 2;
         gameMode = this.message;
-        console.log(this.message);
+        if(gameMode === 'Easy'){
+          loadBalls(5);
+        }
+
+        if(gameMode === 'Medium'){
+          loadBalls(10);
+        }
+
+        if(gameMode === 'Hard'){
+          loadBalls(20);
+        }
     }
   }
 }
