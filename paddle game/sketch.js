@@ -134,9 +134,9 @@ function endGame(){
 }
 
 function loadBalls(n){
-  paddle = new Paddle(width/2, height-150, 150, 30);
+  paddle = new Paddle(width/2, height -150, 150, 30);
   for(var i = 0; i < n; i++){
-    balls[i] = new Ball(random(width), random(10,50), (10,-10), (10,-10), i);
+    balls[i] = new Ball(random(width), random(10,400), (10,-10), (10,-10), i);
   }
 }
 

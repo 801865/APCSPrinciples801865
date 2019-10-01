@@ -51,5 +51,8 @@ isColliding(){
   render(){
     fill(this.clr);
     ellipse(this.loc.x, this.loc.y, this.s, this.s);
+
+    fill(255,255,0)
+    rect(0,0,15,15);
   }
-}//end ball
+}//e,nd ball
