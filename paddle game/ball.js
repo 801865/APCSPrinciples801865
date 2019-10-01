@@ -5,7 +5,7 @@ class Ball{
   constructor(x, y, dx, dy, w, h){
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
-    this.acc = createVector(0,0);
+    this.acc = createVector(0,0.01);
     this.clr = color(random(255), random(255), random(255))
     this.s = 20;
   }
@@ -34,7 +34,7 @@ class Ball{
   update(){
     this.vel.add(this.acc)
     this.loc.add(this.vel)
-    this.vel.limit(5);
+    this.vel.limit(6);
 }//end of update
 
 isColliding(){

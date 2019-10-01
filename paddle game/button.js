@@ -29,8 +29,8 @@ class Button{
       mouseX < (this.x + this.w) &&
       mouseY > this.y &&
       mouseY < (this.y + this.h)){
-        gameState = 2;
         gameMode = this.message;
+        gameState = 2;
         if(gameMode === 'Easy'){
           loadBalls(5);
         }

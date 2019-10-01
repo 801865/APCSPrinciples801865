@@ -15,7 +15,7 @@ run(){
 
 render(){
   fill(this.clr);
-  rect(mouseX, this.loc.y, this.w, this.h);
+  rect(mouseX - 70, this.loc.y, this.w, this.h);
   this.clr = color(random(250), random(250), random(250))
 }
 

@@ -7,6 +7,7 @@ var gameState = 1
 var btnEasy, btnHard, btnMedium;
 var gameMode;
 var score, health;
+var lose, win;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -72,13 +73,19 @@ function playGame(){
           score = score + 100;
     }
   }
+
   push();
     translate(690, 20);
     fill(255);
-    text('score:', 10, 20);
+    text('Score:', 10, 20);
     translate(60, 0);
     text(score, 10, 20);
   pop();
+
+  if(balls.y < (paddle.y + paddle.h)){
+    health = health - 1;
+  }
+
   push();
     translate(10,20);
     fill(255);
@@ -86,14 +93,44 @@ function playGame(){
     translate(70, 0);
     text(health, 10, 20)
   pop();
+
+  if(health <= 0){
+    lose = true;
+    gameState = 3;
+  }
+
+  if(balls.length === 0){
+    win = true;
+    gameState = 3;
+  }
 }//end of playGame
 
 function endGame(){
-  textAlign(CENTER)
-  translate(400, 400)
-  textSize(100)
-  fill(255)
-  text('game has ended', 10, 20)
+  if(win = true){
+    push();
+      textAlign(CENTER);
+      translate(400, 400);
+      textSize(100);
+      fill(255, 255, 0);
+      text('You win!', 10, 20);
+    pop();
+  }else if(lose = true){
+    push();
+      textAlign(CENTER);
+      translate(400, 400);
+      textSize(100);
+      fill(0, 0, 255);
+      text('You lost :(', 10, 20);
+    pop();
+  }
+
+  push();
+    textAlign(CENTER);
+    translate(400, 600);
+    textSize(30);
+    fill(255);
+    text('Press the reload button to play again.', 10, 20);
+  pop();
 }
 
 function loadBalls(n){
