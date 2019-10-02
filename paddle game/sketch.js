@@ -1,6 +1,7 @@
 //  Danny Ramirez
 // 	8/21/19
 //  This is a comment
+//sketch.js
 var balls = []
 var paddle;
 var gameState = 1
@@ -16,8 +17,8 @@ function setup() {
   loadButtons(3);
   loadBalls(3);
   score = 0;
-  health = 5;
-}
+  health = 5;//variables
+}// end of setup
 
 //  The draw function is called @ 30 fps
 function draw() {
@@ -28,9 +29,9 @@ function draw() {
     playGame();
   }else if(gameState === 3){
     endGame();
-  }
+  }// spashscreens
 
-}
+}// end of draw
 
 function startGame(){
   push();
@@ -39,9 +40,9 @@ function startGame(){
     textSize(100);
     fill(random(255), random(255), random(255));
     text('Hit', 10, 20);
-  pop();
+  pop();// tittle
   btnEasy.run();
-  btnMedium.run();
+  btnMedium.run();// activates buttons
   btnHard.run();
   push();
     textAlign(CENTER);
@@ -55,16 +56,16 @@ function startGame(){
     text('points if the balls hit the top of the paddle. You will lose a', 10, 20);
     translate(0, 25);
     text(' life if a ball hits the bottom of the paddle. Good Luck!', 10, 20);
-  pop();
+  pop();//Instructions
 
-}
+}//end of StartGamne
 
 function playGame(){
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
-  }
+  }// activates balls
 
-  paddle.run();
+  paddle.run();// activates paddle
 
   for(var i = balls.length - 1; i >= 0; i--){
     if(balls[i].isColliding()){
@@ -72,7 +73,7 @@ function playGame(){
           balls.splice(i, 1)
           score = score + 100;
     }
-  }
+  }// code for adding score and taking balls
 
   push();
     translate(690, 20);
@@ -80,11 +81,11 @@ function playGame(){
     text('Score:', 10, 20);
     translate(60, 0);
     text(score, 10, 20);
-  pop();
+  pop();// shows score
 
   if(balls.y < (paddle.y + paddle.h)){
     health = health - 1;
-  }
+  }// how health is taken
 
   push();
     translate(10,20);
@@ -92,17 +93,17 @@ function playGame(){
     text('Health:', 10, 20);
     translate(70, 0);
     text(health, 10, 20)
-  pop();
+  pop();// shows health
 
   if(health <= 0){
     lose = true;
     gameState = 3;
-  }
+  }// check if health is zero
 
   if(balls.length === 0){
     win = true;
     gameState = 3;
-  }
+  }// check if all balls are gone
 }//end of playGame
 
 function endGame(){
@@ -113,7 +114,7 @@ function endGame(){
       textSize(100);
       fill(255, 255, 0);
       text('You win!', 10, 20);
-    pop();
+    pop();// code for people who won
   }else if(lose = true){
     push();
       textAlign(CENTER);
@@ -122,7 +123,7 @@ function endGame(){
       fill(0, 0, 255);
       text('You lost :(', 10, 20);
     pop();
-  }
+  }//code for people who lost
 
   push();
     textAlign(CENTER);
@@ -131,17 +132,17 @@ function endGame(){
     fill(255);
     text('Press the reload button to play again.', 10, 20);
   pop();
-}
+}// code to play again
 
 function loadBalls(n){
   paddle = new Paddle(width/2, height -150, 150, 30);
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(10,400), (10,-10), (10,-10), i);
   }
-}
+}//draws balls and paddle
 
 function loadButtons(){
     btnEasy = new Button(200, 600, 100, 50, 'Easy', color(random(255), random(255), random(255)))
     btnMedium = new Button(400, 600, 100, 50, 'Medium', color(random(255), random(255), random(255)))
     btnHard = new Button(600, 600, 100, 50, 'Hard', color(random(255), random(255), random(255)))
-}
+}//loads buttons

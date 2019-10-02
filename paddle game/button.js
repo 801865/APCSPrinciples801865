@@ -8,21 +8,21 @@ class Button{
     this.w = w;
     this.h = h;
     this.clr = clr;
-    this.message = msg;
+    this.message = msg;//variables
   }
 
   run(){
     this.render();
-    this.update();
-  }
+    this.update();//these are called in
+  }//end of run
 
   render(){
     fill(this.clr);
     rect(this.x, this.y, this.w, this.h);
     textSize(20);
     fill(255);
-    text(this.message, this.x, this.y);
-  }
+    text(this.message, this.x, this.y);//makes buttons appear
+  }//end of render
 
   update(){
     if( mouseIsPressed && mouseX > this.x &&
@@ -42,6 +42,6 @@ class Button{
         if(gameMode === 'Hard'){
           loadBalls(20);
         }
-    }
-  }
-}
+    }//sets the # of balls
+  }//end of update
+}//end of button class

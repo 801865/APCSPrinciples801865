@@ -7,14 +7,14 @@ class Ball{
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0.01);
     this.clr = color(random(255), random(255), random(255))
-    this.s = 20;
+    this.s = 20;// variables
   }
 
   run(){
     this.checkEdges();
-    this.update();
+    this.update();//these are called in
     this.render();
-  }
+  }//end of run
 
   checkEdges(){
   if(this.loc.x < 0){
@@ -28,13 +28,13 @@ class Ball{
   }
   if(this.loc.y > height){
     this.vel.y = -this.vel.y;
-  }
-}
+  }//checks if the balls hit edge
+}//end of checkEdges
 
   update(){
     this.vel.add(this.acc)
     this.loc.add(this.vel)
-    this.vel.limit(6);
+    this.vel.limit(6);//increase speed and to limit speed
 }//end of update
 
 isColliding(){
@@ -45,14 +45,11 @@ isColliding(){
       return true;
     }else{
       return false;
-    }
-  }
+    }//checks if balls are touching paddle
+  }//end of isColliding
 
   render(){
     fill(this.clr);
-    ellipse(this.loc.x, this.loc.y, this.s, this.s);
-
-    fill(255,255,0)
-    rect(0,0,15,15);
-  }
-}//e,nd ball
+    ellipse(this.loc.x, this.loc.y, this.s, this.s);//creates balls
+  }//end of render
+}//end ball
