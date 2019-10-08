@@ -25,7 +25,7 @@ function setup() {
 
 function loadSquares(n){
   for(var i = 0; i < n; i++){
-    square[i] = new Square(0, 0, 100, 100);
+    square[i] = new Square(-101, 0, 100, 100);
   }
   //  create a square object and push it into the squares array
   //  create a loop that will push 64 squares into an array

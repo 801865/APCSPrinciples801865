@@ -25,7 +25,7 @@ class Square{
       for(var s = 0; s <= 8; s++){
         var add = 101;
         var add2 = 101;
-        for(j = j; j <= 8; j++){
+        for(j = j; j <= 7; j++){
           rect(this.x + add, this.y, this.w, this.h);
           add = add + 101;
           if(j % 2 === 0){
@@ -34,7 +34,7 @@ class Square{
             fill(this.clr2);
           }
         }
-        rect(this.x, this.y + add2, this.w, this.h);
+        rect(this.x + add, this.y + add2, this.w, this.h);
       }
     }
 
