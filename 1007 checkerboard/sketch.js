@@ -17,7 +17,15 @@ function setup() {
   // array of square objects and call the function
   loadSquares(); //  traverse array and run each square
   for(var i = 0; i < square.length; i++){
-    square[i].run();
+    square[1].run();
+    square[2].run();
+    square[3].run();
+    square[4].run();
+    square[5].run();
+    square[6].run();
+    square[7].run();
+    square[8].run();
+
   }
 }
 
@@ -25,7 +33,14 @@ function setup() {
 
 function loadSquares(n){
   for(var i = 0; i < n; i++){
-    square[i] = new Square(-101, 0, 100, 100);
+    square[1] = new Square(-101, 0, 100, 100, color(0, 0, 0), color(250, 250, 250));
+    square[2] = new Square(-101, 101, 100, 100, color(250, 250, 250), color(0, 0, 0));
+    square[3] = new Square(-101, 202, 100, 100, color(0, 0, 0), color(250, 250, 250));
+    square[4] = new Square(-101, 303, 100, 100, color(250, 250, 250), color(0, 0, 0));
+    square[5] = new Square(-101, 404, 100, 100, color(0, 0, 0), color(250, 250, 250));
+    square[6] = new Square(-101, 505, 100, 100, color(250, 250, 250), color(0, 0, 0));
+    square[7] = new Square(-101, 606, 100, 100, color(0, 0, 0), color(250, 250, 250));
+    square[8] = new Square(-101, 707, 100, 100, color(250, 250, 250), color(0, 0, 0));
   }
   //  create a square object and push it into the squares array
   //  create a loop that will push 64 squares into an array
