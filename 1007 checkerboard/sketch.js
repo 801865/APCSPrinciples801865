@@ -25,7 +25,6 @@ function setup() {
     square[6].run();
     square[7].run();
     square[8].run();
-
   }
 }
 
