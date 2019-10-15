@@ -12,10 +12,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  for(a = 0; a <= 30; a++){
-    list = list + random(0, 30);
-  }
-  //list = [11, 5, 4, 1, 20, 30, 500];
+  list = [11, 5, 4, 1, 20, 30, 500];
   console.log(list);
   bubbleSort();
   console.log(list);
