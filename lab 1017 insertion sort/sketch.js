@@ -13,7 +13,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  for(a = 0; a <= 1000; a++){
+  for(a = 0; a <= 5; a++){
     list = list + ' ' + ceil(random(0, 1000));
   }
   console.log(list);
@@ -22,8 +22,16 @@ function setup() {
 }
 
 function insertionSort(){
-  for(i = 1; i < list.length;)
-}
+  for(i = 1; i < list.length; i++){
+    for(j = i; j > 0; j--){
+      if(list[j - 1] > list[j]){
+        temp = list[j  - 1];
+        list[j] = list[j - 1];
+        list[j - 1] = temp;
+      }//swap
+    }//j loop
+  }// i loop
+}//end of insertion sort
 
 //  The draw function is called @ 30 fps
 function draw() {
