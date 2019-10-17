@@ -16,8 +16,13 @@ function setup() {
   for(a = 0; a <= 1000; a++){
     list = list + ' ' + ceil(random(0, 1000));
   }
+  console.log(list);
+  insertionSort();
+  console.log(list);
+}
 
-
+function insertionSort(){
+  for(i = 1; i < list.length;)
 }
 
 //  The draw function is called @ 30 fps
