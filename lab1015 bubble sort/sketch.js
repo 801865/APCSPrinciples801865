@@ -5,7 +5,7 @@
 var list = [];
 var i = 0;
 var j = 0;
-var temp = 0
+var temp = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
