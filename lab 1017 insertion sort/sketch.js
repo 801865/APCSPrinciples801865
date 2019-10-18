@@ -6,7 +6,7 @@ var list = [];
 var i = 0;
 var j = 0;
 var a = 0;
-var temp = 0;
+
 
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -14,7 +14,7 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
   for(a = 0; a <= 5; a++){
-    list = list + ' ' + ceil(random(0, 1000));
+    list = list + ceil(random(0, 10));
   }
   console.log(list);
   insertionSort();
@@ -24,16 +24,16 @@ function setup() {
 function insertionSort(){
   for(i = 1; i < list.length; i++){
     for(j = i; j > 0; j--){
-      if(list[j - 1] > list[j]){
-        temp = list[j  - 1];
-        list[j] = list[j - 1];
-        list[j - 1] = temp;
+      if(list[j] < list[j - 1]){
+        swap(list, j, j-1);
       }//swap
     }//j loop
   }// i loop
 }//end of insertion sort
 
 //  The draw function is called @ 30 fps
-function draw() {
-
+function swap(list, x, y) {
+  var temp = list[y];
+  list[x] = list[y];
+  list[x] = temp;
 }
