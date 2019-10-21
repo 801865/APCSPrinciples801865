@@ -5,17 +5,13 @@
 var list = [];
 var i = 0;
 var j = 0;
-var a = 0;
-
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  for(a = 0; a <= 5; a++){
-    list = list + ceil(random(0, 10));
-  }
+  list = [ceil(random(0, 30)), ceil(random(0, 30)),ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30))];
   console.log(list);
   insertionSort();
   console.log(list);
@@ -34,6 +30,6 @@ function insertionSort(){
 //  The draw function is called @ 30 fps
 function swap(list, x, y) {
   var temp = list[y];
-  list[x] = list[y];
+  list[y] = list[x];
   list[x] = temp;
-}
+}//swap code
