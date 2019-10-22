@@ -19,7 +19,8 @@ function setup() {
   console.log(list);
   selectionSort();
   console.log(list);
-  console.log(comparisons, swap);
+  console.log("Swaps: " + swap);
+  console.log("Comparisons: " + comparisons);
 }
 
 function selectionSort(){
