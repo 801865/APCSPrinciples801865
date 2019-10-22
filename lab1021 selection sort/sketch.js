@@ -9,18 +9,24 @@ var index = 0;
 var smallerNumber = 0;
 swap = 0;
 comparisons = 0;
+var time = 0;
+var time2 = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  list = [ceil(random(0, 30)), ceil(random(0, 30)),ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30))];
+  list = [ceil(random(0, 30)), ceil(random(0, 30)),ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30)),
+  ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30))];
   console.log(list);
+  time = millis();
   selectionSort();
+  time2 = millis();
   console.log(list);
   console.log("Swaps: " + swap);
   console.log("Comparisons: " + comparisons);
+  console.log("Time in seconds: " + ((time2 - time)/ 1000));
 }
 
 function selectionSort(){

@@ -7,18 +7,24 @@ var i = 0;
 var j = 0;
 var s_wap = 0;
 var comparisons = 0;
+var time = 0;
+var time2 = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  list = [ceil(random(0, 30)), ceil(random(0, 30)),ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30))];
+  list = [ceil(random(0, 30)), ceil(random(0, 30)),ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30)),
+  ceil(random(0, 100)), ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30)), ceil(random(0, 30)) ];
   console.log(list);
+  time = millis();
   insertionSort();
+  time2 = millis();
   console.log(list);
   console.log("Swaps: " + s_wap);
   console.log("Comparisons: " + comparisons);
+  console.log("Time in seconds: " + ((time2 - time)/ 1000));
 }
 
 function insertionSort(){

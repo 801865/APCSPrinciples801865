@@ -10,17 +10,14 @@ var swap = 0;
 var comparisons = 0;
 var time = 0;
 var time2 = 0;
-var a = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  //list = [11, 5, 4, 1, 20, 30, 500];
-  for(a = 0; a < 5; a++){
-    list = list + ceil(random(0, 30));
-  }
+  list = [ceil(random(0, 100)), ceil(random(0, 100)), ceil(random(0, 100)), ceil(random(0, 100)), ceil(random(0, 100)),
+  ceil(random(0, 100)), ceil(random(0, 100)), ceil(random(0, 100)), ceil(random(0, 100)), ceil(random(0, 100))];
   console.log(list);
   time = millis();
   bubbleSort();
