@@ -1,19 +1,13 @@
 //bar.js
  class Bar{
-   constructor(x, y, w, h, clr){
-     this.x = x;
-     this.y = y;
-     this.w = w;
-     this.h = h;
-     this.clr = color(random(250)), color(random(250)), color(random(250));
-   }
+   constructor(location){
+    this.loc = location;
+    this.w = barWidth;
+    this.h = height - this.loc.y;
+  }
 
-   run(){
-     this.render();
-   }
-
-   render(){
-     fill(this.clr);
-     rect(this.x, this.y, this.w, this.h);
-   }
- }
+  render(){
+    fill(random(0, 250));
+    rect(this.x, this.y, this.w, this.h);
+  }
+}
