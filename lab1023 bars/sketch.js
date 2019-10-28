@@ -9,13 +9,10 @@ var l = 0;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
-
-  barWidth = 8;
+  background(0, 0, 0);
+  barWidth = 80;
   numBars = width/barWidth;
-
   loadBars(numBars);
-  runBars();
   //sorting code
 }
 
@@ -23,17 +20,34 @@ function setup() {
 function draw() {
   background(20, 20, 110);
   frameRate(1);
-  runBars();
+  runBars(numBars);
+  bubbleSort();
 }
 
 function loadBars(num){
   for(l = 0; l < num; l++){
     var barHeight = ceil(random(height));
-    var loc = (l*barWidth, barHeight);
+    var loc = createVector(l*barWidth, barHeight);
     bars[l] = new Bar(loc);
   }
 }
 
-function runBars(){
-  bars[l].render();
+function runBars(num){
+  for(l = 0; l < num; l++){
+    bars[l].render();
+  }
+}
+
+function bubbleSort(){
+  for(i = list.length - 1; i > 0; i--){
+    for(var j = 0; j < i; j++){
+      if(lis[j] > list[j + 1]){
+        swap(list, j, j + 1);
+      }//check for swap
+    }// j loop
+  }// i loop
+}//end of bubbleSort
+
+function swap(list, j, j + 1){
+  
 }
