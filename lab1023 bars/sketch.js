@@ -5,11 +5,14 @@
 var bars = [];
 var numBars, barWidth;
 var l = 0;
+var i = 0;
+var j = 0;
+var temp = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(0, 0, 0);
+  background(250, 250, 250);
   barWidth = 80;
   numBars = width/barWidth;
   loadBars(numBars);
@@ -39,15 +42,17 @@ function runBars(num){
 }
 
 function bubbleSort(){
-  for(i = list.length - 1; i > 0; i--){
+  for(i = bars.length - 1; i > 0; i--){
     for(var j = 0; j < i; j++){
-      if(lis[j] > list[j + 1]){
-        swap(list, j, j + 1);
+      if(bars[j] > bars[j + 1]){
+        swap(bars, j, j + 1);
       }//check for swap
     }// j loop
   }// i loop
 }//end of bubbleSort
 
-function swap(list, j, j + 1){
-  
+function swap(bars, x, y){
+  temp = bars[x];
+  bars[x] = bars[y];
+  bars[y] = temp;
 }
