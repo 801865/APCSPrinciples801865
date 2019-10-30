@@ -9,24 +9,23 @@ var i = 0;
 var j = 0;
 var temp = 0;
 var barHeight = 0;
-var j2 = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(250, 250, 250);
+  background(0, 0, 0);
   barWidth = 80;
   numBars = width/barWidth;
   loadBars(numBars);
-  //sorting code
+  runBars(numBars);
+  frameRate(1);
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-  background(20, 20, 110);
-  frameRate(1);
-  runBars(numBars);
+  background(0, 0, 0);
   bubbleSort();
+  runBars(numBars);
 }
 
 function loadBars(num){
@@ -44,18 +43,15 @@ function runBars(num){
 }
 
 function bubbleSort(){
-  for(i = bars.length - 1; i > 0; i--){
-    for(j = 0; j < i; j++){
-      if(bars[j] > bars[j + 1]){
-        j2 = bars[j + 1]
-        swap(bars, j, j + 1);
-      }//check for swap
-    }// j loop
-  }// i loop
+  for(j = 0; j < bars.length - 1; j++){
+    if(bars[j].h > bars[j + 1].h){
+      swap(bars, j, j + 1);
+    }//check for swap
+  }// j loop
 }//end of bubbleSort
 
-function swap(bars, j, j2){
-  temp = bars[j];
-  bars[j] = bars[j2];
-  bars[j2] = temp
-}
+function swap(bars, x, y){
+  temp = bars[x].h;
+  bars[x].h = bars[y].h;
+  bars[y].h = temp;
+}//swap code
