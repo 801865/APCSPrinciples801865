@@ -22,10 +22,10 @@ function setup() {
 }
 
 //  The draw function is called @ 30 fps
-function draw() {
+function draw(){
   background(0, 0, 0);
-  bubbleSort();
   runBars(numBars);
+  bubbleSort();
 }
 
 function loadBars(num){
@@ -33,14 +33,14 @@ function loadBars(num){
     barHeight = ceil(random(height));
     var loc = createVector(l*barWidth, barHeight);
     bars[l] = new Bar(loc);
-  }
-}
+  }//sets the settings for the bars
+}//end of bars
 
 function runBars(num){
   for(l = 0; l < num; l++){
     bars[l].render();
-  }
-}
+  }//makes the bars
+}//end of runBars
 
 function bubbleSort(){
   for(j = 0; j < bars.length - 1; j++){
@@ -51,7 +51,7 @@ function bubbleSort(){
 }//end of bubbleSort
 
 function swap(bars, x, y){
-  temp = bars[x].h;
-  bars[x].h = bars[y].h;
-  bars[y].h = temp;
+  temp = bars[x];
+  bars[x] = bars[y];
+  bars[y] = temp;
 }//swap code
