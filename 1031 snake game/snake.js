@@ -19,19 +19,19 @@ class Snake{
 
   update(){
     this.loc.add(this.vel);
-    if(keyCode === LEFT_ARROW){
+    if(keyIsDown(LEFT_ARROW)){
       //this.loc.x = this.loc.x - this.w;
       this.vel = createVector(-this.w, 0);
     }
-    if(keyCode === RIGHT_ARROW){
+    if(keyIsDown(RIGHT_ARROW)){
       //this.loc.x = this.loc.x + this.w;
       this.vel = createVector(this.w, 0);
     }
-    if(keyCode === UP_ARROW){
+    if(keyIsDown(UP_ARROW)){
       //this.loc.y = this.loc.y + this.w;
       this.vel = createVector(0, this.w);
     }
-    if(keyCode === DOWN_ARROW){
+    if(keyIsDown(DOWN_ARROW)){
       //this.loc.y = this.loc.y - this.w;
       this.vel = createVector(0, -this.w);
     }

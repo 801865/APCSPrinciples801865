@@ -4,6 +4,7 @@
 //  The setup function function is called once when your program begins
 var snake;
 var food;
+var score = 0;
 
 function setup() {
   var cnv = createCanvas(800, 800);
