@@ -15,14 +15,15 @@ function setup() {
 }
 
 //  The draw function is called @ 30 fps
-function draw() {
-
+function draw(){
+  snake.run();
+  food.run();
 }
 
 function loadSnake(){
-  snake = new Snake(0, 0, 30, 30, color(0, 255, 0));
+  snake = new Snake(400, 400, 30, 30);
 }
 
 function loadFood(){
-  food = new Food(random(width), random(height), 30, 30, color(255, 0, 0));
+  food = new Food(random(width - 30), random(height - 30), 30, 30);
 }
