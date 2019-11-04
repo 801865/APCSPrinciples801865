@@ -28,3 +28,23 @@ function loadSnake(){
 function loadFood(){
   food = new Food(random(width - 30), random(height - 30), 30, 30);
 }
+
+function keyPressed(){
+  if(keyCode === LEFT_ARROW){
+    snake.vel = createVector(-snake.w, 0);
+    console.log("Left arrow " + snake.w);
+  }
+  if(keyCode === RIGHT_ARROW){
+    snake.vel = createVector(snake.w, 0);
+    console.log("Right arrow " + snake.w);
+  }
+  if(keyCode === UP_ARROW){
+    snake.vel = createVector(0, -snake.h);
+    console.log("Up arrow " + snake.h);
+  }
+  if(keyCode === DOWN_ARROW){
+    snake.vel = createVector(0, snake.h);
+    console.log("down arrow " + snake.w);
+  }
+
+}

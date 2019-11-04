@@ -1,10 +1,10 @@
 //snake.js
 class Snake{
-  constructor(x, y, w, h, vx, vy){
+  constructor(x, y, w, h){
     this.loc = createVector(x, y);
     this.w = w;
     this.h = h;
-    this.vel = createVector(vx, vy);
+    this.vel = createVector(0, 0);
   }
 
   run(){
@@ -12,29 +12,22 @@ class Snake{
     this.update();
   }//end of run
 
-  render(){
-    fill(0, 255, 0);
-    rect(this.loc.x, this.loc.x, this.w, this.h);
-  }
 
   update(){
-    this.loc.add(this.vel);
-    if(keyIsDown(LEFT_ARROW)){
-      //this.loc.x = this.loc.x - this.w;
-      this.vel = createVector(-this.w, 0);
+    var x = this.loc.x;
+    var y = this.loc.y;
+    if(x > 0 && x < width && y >0 && y < height){
+      this.loc.add(this.vel);
+      this.vel.limit(30)
+    }else{
+       this.vel.x = 0;
+       this.vel.y = 0;
     }
-    if(keyIsDown(RIGHT_ARROW)){
-      //this.loc.x = this.loc.x + this.w;
-      this.vel = createVector(this.w, 0);
-    }
-    if(keyIsDown(UP_ARROW)){
-      //this.loc.y = this.loc.y + this.w;
-      this.vel = createVector(0, this.w);
-    }
-    if(keyIsDown(DOWN_ARROW)){
-      //this.loc.y = this.loc.y - this.w;
-      this.vel = createVector(0, -this.w);
-    }
-    this.loc.add(this.vel);
+
   }//end of update
+
+  render(){
+    fill(0, 255, 0);
+    rect(this.loc.x, this.loc.y, this.w, this.h);
+  }
 }//end of snake class
