@@ -5,6 +5,8 @@
 var snake;
 var food;
 var score = 0;
+var gameState = 1;
+var button;
 
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -13,12 +15,53 @@ function setup() {
   fill(200, 30, 150);
   loadSnake();
   loadFood();
+  loadButton();
 }
 
 //  The draw function is called @ 30 fps
 function draw(){
+  background(5, 5, 5);
+  if(gameState === 1){
+    startGame();
+  }else if(gameState === 2){
+    playGame();
+  }else if(gameState === 3){
+    endGame();
+  }
+}//end of draw
+
+function startGame(){
+  push();
+    textAlign(CENTER);
+    translate(400, 200);
+    textSize(100);
+    fill(random(255), random(255), random(255));
+    text('Ssssnakesss!', 10, 20);
+    textSize(30);
+    translate(0, 100);
+    fill(250, 250, 250);
+    text('Instructions:', 10, 20);
+    textSize(20);
+    translate(0, 25);
+    text('Use the arrow keys to contol the snake(green) in order to get an apple(red).', 10, 20);
+    translate(0, 25);
+    text("If you crash into the wall or the tail of the snake, it's game over!", 10, 20);
+  pop();
+}
+
+function playGame(){
   snake.run();
   food.run();
+}
+
+function endGame(){
+  push();
+    textAlign(CENTER);
+    translate(400, 200);
+    textSize(100);
+    fill(random(255), random(255), random(255));
+    text('Game over!', 10, 20);
+  pop();
 }
 
 function loadSnake(){
@@ -27,6 +70,10 @@ function loadSnake(){
 
 function loadFood(){
   food = new Food(random(width - 30), random(height - 30), 30, 30);
+}
+
+function loadButton(){
+  button = new Button(200, 600, 100, 50, 'Start Game?', color(random(255), random(255), random(255)));
 }
 
 function keyPressed(){
