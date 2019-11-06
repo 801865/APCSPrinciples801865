@@ -1,10 +1,11 @@
 //snake.js
 class Snake{
   constructor(x, y, w, h){
-    this.loc = createVector(x, y);
+    this.head = createVector(x, y);
     this.w = w;
     this.h = h;
     this.vel = createVector(0, 0);
+    this.segment = [];
   }
 
   run(){
@@ -14,11 +15,10 @@ class Snake{
 
 
   update(){
-    var x = this.loc.x;
-    var y = this.loc.y;
+    var x = this.head.x;
+    var y = this.head.y;
     if(x > 0 && x < width && y >0 && y < height){
-      this.loc.add(this.vel);
-      this.vel.limit(30)
+      this.head.add(this.vel);
     }else{
        this.vel.x = 0;
        this.vel.y = 0;
@@ -28,6 +28,9 @@ class Snake{
 
   render(){
     fill(0, 255, 0);
-    rect(this.loc.x, this.loc.y, this.w, this.h);
+    rect(this.head.x, this.head.y, this.w, this.h);
+    for(var i = 0; i < this.segment.length; i++){
+      rect(this.segment[i].x, this.this.segment[i].y, this.w, this.h);
+    }
   }
 }//end of snake class

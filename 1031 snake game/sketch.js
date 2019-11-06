@@ -7,6 +7,7 @@ var food;
 var score = 0;
 var gameState = 1;
 var button;
+var speed = 1;
 
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -47,6 +48,7 @@ function startGame(){
     translate(0, 25);
     text("If you crash into the wall or the tail of the snake, it's game over!", 10, 20);
   pop();
+  button.run();
 }
 
 function playGame(){
@@ -69,29 +71,29 @@ function loadSnake(){
 }
 
 function loadFood(){
-  food = new Food(random(width - 30), random(height - 30), 30, 30);
+  food = new Food(ceil(random(width - 30)), ceil(random(height - 30)), 30, 30);
 }
 
 function loadButton(){
-  button = new Button(200, 600, 100, 50, 'Start Game?', color(random(255), random(255), random(255)));
+  button = new Button(350, 600, 100, 50, 'Start Game?', color(random(255), random(255), random(255)));
 }
 
 function keyPressed(){
   if(keyCode === LEFT_ARROW){
-    snake.vel = createVector(-snake.w, 0);
-    console.log("Left arrow " + snake.w);
+    snake.vel = createVector(-speed, 0);
+    console.log("Left arrow " + -speed);
   }
   if(keyCode === RIGHT_ARROW){
-    snake.vel = createVector(snake.w, 0);
-    console.log("Right arrow " + snake.w);
+    snake.vel = createVector(speed, 0);
+    console.log("Right arrow " + speed);
   }
   if(keyCode === UP_ARROW){
-    snake.vel = createVector(0, -snake.h);
-    console.log("Up arrow " + snake.h);
+    snake.vel = createVector(0, -speed);
+    console.log("Up arrow " + -speed);
   }
   if(keyCode === DOWN_ARROW){
-    snake.vel = createVector(0, snake.h);
-    console.log("down arrow " + snake.w);
+    snake.vel = createVector(0, speed);
+    console.log("down arrow " + speed);
   }
 
 }
