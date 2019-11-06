@@ -22,6 +22,7 @@ class Snake{
     }else{
        this.vel.x = 0;
        this.vel.y = 0;
+       gameState = 3;
     }
 
   }//end of update

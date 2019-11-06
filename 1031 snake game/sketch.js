@@ -52,6 +52,12 @@ function startGame(){
 }
 
 function playGame(){
+  push();
+    translate(10, 20);
+    textSize(25);
+    fill(250, 250, 250);
+    text('Score: ' + score, 10, 10);
+  pop();
   snake.run();
   food.run();
 }
@@ -63,6 +69,12 @@ function endGame(){
     textSize(100);
     fill(random(255), random(255), random(255));
     text('Game over!', 10, 20);
+    translate(0, 200);
+    text('Score: ' + score, 10, 20);
+    textSize(40);
+    translate(0, 100);
+    fill(250, 250, 250);
+    text("Press the reload button to try again.", 10, 20);
   pop();
 }
 
