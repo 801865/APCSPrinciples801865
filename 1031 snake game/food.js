@@ -19,9 +19,8 @@ class Food{
   update(){
     if(this.x === snake.head.x && this.y === snake.head.y){
       score = score + 1;
-      this.x = random(width - 30);
-      this.y = random(height - 30);
-      rect(this.x, this.y, this.w, this.h);
+      this.x = ceil(random(width - 30));
+      this.y = ceil(random(height - 30));
     }
   }
 }//end of food class
