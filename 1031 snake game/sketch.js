@@ -37,7 +37,7 @@ function startGame(){
     translate(400, 200);
     textSize(100);
     fill(random(255), random(255), random(255));
-    text('Ssssnakesss!', 10, 20);
+    text('Ssssnake!', 10, 20);
     textSize(30);
     translate(0, 100);
     fill(250, 250, 250);
@@ -107,5 +107,4 @@ function keyPressed(){
     snake.vel = createVector(0, speed);
     console.log("down arrow " + speed);
   }
-
 }
