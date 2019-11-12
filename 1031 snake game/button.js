@@ -7,12 +7,12 @@ class Button{
     this.h = h;
     this.clr = clr;
     this.message = msg;
-  }
+  }// elements of button
 
   run(){
     this.render();
     this.update();
-  }
+  }//end of run
 
   render(){
     fill(this.clr);
@@ -20,14 +20,14 @@ class Button{
     textSize(20);
     fill(255);
     text(this.message, this.x, this.y);
-  }
+  }//end of render
 
   update(){
     if(mouseIsPressed && mouseX > this.x &&
       mouseX < (this.x + this.w) &&
       mouseY > this.y &&
       mouseY < (this.y + this.h)){
-      gameState = 2;  
-      }
-  }
-}
+      gameState = 2;
+    }//changes the game screen
+  }//end of update
+}//end of button class

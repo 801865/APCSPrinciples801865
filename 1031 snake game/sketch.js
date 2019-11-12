@@ -7,15 +7,16 @@ var food;
 var score = 0;
 var gameState = 1;
 var button;
-var speed = 1;
+var snakeWidth = 40;
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
+  frameRate(1);
   loadSnake();
-  loadFood();
+  loadFood();// loads the objects of the game(snake, food, button)
   loadButton();
 }
 
@@ -28,7 +29,7 @@ function draw(){
     playGame();
   }else if(gameState === 3){
     endGame();
-  }
+  }//checks which game screen the program should be in
 }//end of draw
 
 function startGame(){
@@ -49,7 +50,7 @@ function startGame(){
     text("If you crash into the wall or the tail of the snake, it's game over!", 10, 20);
   pop();
   button.run();
-}
+}// start screen of game
 
 function playGame(){
   push();
@@ -60,7 +61,7 @@ function playGame(){
   pop();
   snake.run();
   food.run();
-}
+}// play screen of game
 
 function endGame(){
   push();
@@ -76,35 +77,43 @@ function endGame(){
     fill(250, 250, 250);
     text("Press the reload button to try again.", 10, 20);
   pop();
-}
+}// end screen for game
 
 function loadSnake(){
-  snake = new Snake(400, 400, 30, 30);
-}
+  var numCol = width / snakeWidth;
+  var numRow = height / snakeWidth;
+  snake = new Snake(numCol - (numCol/2), numRow - (numRow/2), 40 , 40);
+}//makes the snake
 
 function loadFood(){
-  food = new Food(ceil(random(width - 30)), ceil(random(height - 30)), 30, 30);
-}
+  var numCol = width / snakeWidth;
+  var numRow = height / snakeWidth;
+  var foodX = ceil(random(numCol));
+  var foodY = ceil(random(numRow));
+  food = new Food(foodX - (foodX/2), foodY - (foodY/2), 40, 40);
+}//makes the food
 
 function loadButton(){
   button = new Button(350, 600, 100, 50, 'Start Game?', color(random(255), random(255), random(255)));
-}
+}//makes a button
 
 function keyPressed(){
+  var numCol = width / snakeWidth;
+  var numRow = height / snakeWidth;
   if(keyCode === LEFT_ARROW){
-    snake.vel = createVector(-speed, 0);
-    console.log("Left arrow " + -speed);
+    snake.vel = createVector(-numCol, 0);
+    console.log("Left arrow " + -numCol);
   }
   if(keyCode === RIGHT_ARROW){
-    snake.vel = createVector(speed, 0);
-    console.log("Right arrow " + speed);
+    snake.vel = createVector(numCol, 0);
+    console.log("Right arrow " + numCol);
   }
   if(keyCode === UP_ARROW){
-    snake.vel = createVector(0, -speed);
-    console.log("Up arrow " + -speed);
+    snake.vel = createVector(0, -numCol);
+    console.log("Up arrow " + -numCol);
   }
   if(keyCode === DOWN_ARROW){
-    snake.vel = createVector(0, speed);
-    console.log("down arrow " + speed);
+    snake.vel = createVector(0, numCol);
+    console.log("down arrow " + numCol);
   }
-}
+}//movement

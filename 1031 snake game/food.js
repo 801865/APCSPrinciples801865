@@ -5,12 +5,12 @@ class Food{
     this.y = y;
     this.w = w;
     this.h = h;
-  }
+  }// elements of food
 
   run(){
     this.render();
     this.update();
-  }
+  }//end of run
 
   render(){
     fill(255, 0, 0);
@@ -21,6 +21,6 @@ class Food{
       score = score + 1;
       this.x = ceil(random(width - 30));
       this.y = ceil(random(height - 30));
-    }
-  }
+    }//checks if snake is equal to food and, if true, moves to a different area
+  }// end of update
 }//end of food class
