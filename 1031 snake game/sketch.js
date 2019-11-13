@@ -5,16 +5,20 @@
 var snake;
 var food;
 var score = 0;
-var gameState = 1;
+var gameState = 2;
 var button;
-var snakeWidth = 40;
+var snakeWidth = 30;
+var numCol = 0;
+var numRow = 0;
 
 function setup() {
-  var cnv = createCanvas(800, 800);
+  var cnv = createCanvas(900, 900);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
+  numCol = width / snakeWidth;
+  numRow = height / snakeWidth;
   fill(200, 30, 150);
-  frameRate(1);
+  frameRate(5);
   loadSnake();
   loadFood();// loads the objects of the game(snake, food, button)
   loadButton();
@@ -80,17 +84,13 @@ function endGame(){
 }// end screen for game
 
 function loadSnake(){
-  var numCol = width / snakeWidth;
-  var numRow = height / snakeWidth;
-  snake = new Snake(numCol - (numCol/2), numRow - (numRow/2), 40 , 40);
+  snake = new Snake(width/2, height/2, 30 , 30);
 }//makes the snake
 
 function loadFood(){
-  var numCol = width / snakeWidth;
-  var numRow = height / snakeWidth;
-  var foodX = ceil(random(numCol));
-  var foodY = ceil(random(numRow));
-  food = new Food(foodX - (foodX/2), foodY - (foodY/2), 40, 40);
+  var foodCol = numCol*ceil(random(0, 30));
+  var foodRow = numRow*ceil(random(0, 30));
+  food = new Food(foodCol, foodRow, 30, 30);
 }//makes the food
 
 function loadButton(){
@@ -98,8 +98,6 @@ function loadButton(){
 }//makes a button
 
 function keyPressed(){
-  var numCol = width / snakeWidth;
-  var numRow = height / snakeWidth;
   if(keyCode === LEFT_ARROW){
     snake.vel = createVector(-numCol, 0);
     console.log("Left arrow " + -numCol);
