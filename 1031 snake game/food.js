@@ -19,8 +19,12 @@ class Food{
   update(){
     if(this.x === snake.head.x && this.y === snake.head.y){
       score = score + 1;
-      this.x = ceil(random(width - 30));
-      this.y = ceil(random(height - 30));
+      this.x = numCol*ceil(random(0, numCol));
+      this.y = numRow*ceil(random(0, numRow));
+      if(this.x >= 900 || this.y >= 900){
+        this.x = numCol*ceil(random(0, numCol));
+        this.y = numRow*ceil(random(0, numRow));
+      }//checks if food is outside the canvas
     }//checks if snake is equal to food and, if true, moves to a different area
   }// end of update
 }//end of food class

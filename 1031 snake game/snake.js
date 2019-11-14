@@ -7,7 +7,7 @@ class Snake{
     this.w = w;
     this.h = h;
     this.vel = createVector(0, 0);
-    this.segment = [];
+    this.segments = [];
   }//elements of snake
 
   run(){
@@ -18,10 +18,9 @@ class Snake{
 
   update(){
     if(this.head.x === food.x && this.head.y === food.y){
-      j = j++;
-      this.segment = [] + j;
-      this.segment[j - 1].x = this.head.x;
-      this.segment[j - 1].y = this.head.y;
+      this.segments.push = [creatVector(x,y)];
+      this.segments.loc.x = this.head.x;
+      this.segments.loc.y = this.head.y;
     }//creates segment
     var x = this.head.x;
     var y = this.head.y;
@@ -37,8 +36,8 @@ class Snake{
   render(){
     fill(0, 255, 0);
     rect(this.head.x, this.head.y, this.w, this.h);
-    for(var i = 0; i < this.segment.length; i++){
-      rect(this.segment[i].x, this.segment[i].y, this.w, this.h);
+    for(var i = 0; i < this.segments.length; i++){
+      rect(this.segments.loc.x, this.segments.loc.y, this.w, this.h);
     }//creates new segment
   }//end of render
 }//end of snake class

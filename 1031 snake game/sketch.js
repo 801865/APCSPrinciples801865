@@ -88,8 +88,8 @@ function loadSnake(){
 }//makes the snake
 
 function loadFood(){
-  var foodCol = numCol*ceil(random(0, 30));
-  var foodRow = numRow*ceil(random(0, 30));
+  var foodCol = numCol*ceil(random(0, numCol));
+  var foodRow = numRow*ceil(random(0, numCol));
   food = new Food(foodCol, foodRow, 30, 30);
 }//makes the food
 
