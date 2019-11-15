@@ -39,7 +39,7 @@ function draw(){
 function startGame(){
   push();
     textAlign(CENTER);
-    translate(400, 200);
+    translate(450, 200);
     textSize(100);
     fill(random(255), random(255), random(255));
     text('Ssssnake!', 10, 20);
@@ -70,7 +70,7 @@ function playGame(){
 function endGame(){
   push();
     textAlign(CENTER);
-    translate(400, 200);
+    translate(450, 200);
     textSize(100);
     fill(random(255), random(255), random(255));
     text('Game over!', 10, 20);

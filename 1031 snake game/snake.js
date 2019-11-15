@@ -17,13 +17,13 @@ class Snake{
 
 
   update(){
-    if(this.head.x === food.x && this.head.y === food.y){
-      this.segments.push = [creatVector(x,y)];
-      this.segments.loc.x = this.head.x;
-      this.segments.loc.y = this.head.y;
-    }//creates segment
     var x = this.head.x;
     var y = this.head.y;
+    if(x === food.x && y === food.y){
+      this.segments.push = [createVector(x,y)];
+      this.segments[x] = this.head.x;
+      this.segments[y] = this.head.y;
+    }//creates segment
     if(x > 0 && x < width && y >0 && y < height){
       this.head.add(this.vel);
     }else{
