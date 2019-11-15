@@ -19,11 +19,8 @@ class Snake{
   update(){
     var x = this.head.x;
     var y = this.head.y;
-    if(x === food.x && y === food.y){
-      this.segments.push = [createVector(x,y)];
-      this.segments[x] = this.head.x;
-      this.segments[y] = this.head.y;
-    }//creates segment
+    this.segments.x = x;
+    this.segments.y = y;
     if(x > 0 && x < width && y >0 && y < height){
       this.head.add(this.vel);
     }else{
@@ -37,7 +34,7 @@ class Snake{
     fill(0, 255, 0);
     rect(this.head.x, this.head.y, this.w, this.h);
     for(var i = 0; i < this.segments.length; i++){
-      rect(this.segments.loc.x, this.segments.loc.y, this.w, this.h);
+      rect(this.segments.x, this.segments.y, this.w, this.h);
     }//creates new segment
   }//end of render
 }//end of snake class

@@ -19,6 +19,7 @@ class Food{
   update(){
     if(this.x === snake.head.x && this.y === snake.head.y){
       score = score + 1;
+      snake.segments.push(createVector(0 , 0));
       this.x = numCol*ceil(random(0, numCol));
       this.y = numRow*ceil(random(0, numRow));
       if(this.x >= 900 || this.y >= 900){
