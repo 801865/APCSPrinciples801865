@@ -1,5 +1,5 @@
 //snake.js
-var j = 0;
+var j = 1;
 
 class Snake{
   constructor(x, y, w, h){
@@ -19,9 +19,10 @@ class Snake{
   update(){
     var x = this.head.x;
     var y = this.head.y;
-    this.segments.x = x;
-    this.segments.y = y;
-    if(x > 0 && x < width && y >0 && y < height){
+    this.segments = [] + j;
+    this.segments[j - 1].x = x;
+    this.segments[j - 1].y = y;
+    if(x > 0 && x < width && y > 0 && y < height){
       this.head.add(this.vel);
     }else{
        this.vel.x = 0;
