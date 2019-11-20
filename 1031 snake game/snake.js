@@ -1,5 +1,6 @@
 //snake.js
 var j = 1;
+var a =0;
 
 class Snake{
   constructor(x, y, w, h){
@@ -27,6 +28,13 @@ class Snake{
       this.segments[0].x = x;
       this.segments[0].y = y;
     }
+    //if(this.segments.length > 0){
+    //  for(a = 0; a <= this.segments.length; a++){
+        //if(this.segments[a].x === this.head.x && this.segments[a].x === this.head.y){
+        //  gameState = 3;
+      //  }
+    //  }
+    //}
     if(x > 0 && x < width && y > 0 && y < height){
       this.head.add(this.vel);
     }else{
@@ -34,13 +42,6 @@ class Snake{
        this.vel.y = 0;
        gameState = 3;
     }//checks if snake is off the screen
-    if(this.segments.length > 0){
-      for(j = 0; j <= this.segments.length; j++){
-        if(x === this.segments[j].x && y === this.segments[j].y){
-          gameState = 3;
-        }//checks if snake crashes with itself
-      }//end of for loop
-    }//end of first if statement
   }//end of update
 
   render(){
