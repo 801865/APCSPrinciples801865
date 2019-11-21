@@ -5,7 +5,7 @@
 var snake;
 var food;
 var score = 0;
-var gameState = 2;
+var gameState = 1;
 var button;
 var snakeWidth = 30;
 var numCol = 0;
@@ -94,7 +94,7 @@ function loadFood(){
 }//makes the food
 
 function loadButton(){
-  button = new Button(350, 600, 100, 50, 'Start Game?', color(random(255), random(255), random(255)));
+  button = new Button(400, 600, 100, 50, 'Start Game?', color(random(255), random(255), random(255)));
 }//makes a button
 
 function keyPressed(){

@@ -23,18 +23,21 @@ class Snake{
     for(j = this.segments.length - 1; j > 0; j--){
       this.segments[j].x = this.segments[j - 1].x;
       this.segments[j].y = this.segments[j - 1].y;
-    }
+    }//moves the segment one back
+
     if(this.segments.length > 0){
       this.segments[0].x = x;
       this.segments[0].y = y;
+    }//moves the first segment
+
+    if(this.segments.length > 0){
+     for(a = 0; a <= this.segments.length; a++){
+        if(this.segments[a].x === this.head.x && this.segments[a].y === this.head.y){
+         gameState = 3;
+       }
+     }
     }
-    //if(this.segments.length > 0){
-    //  for(a = 0; a <= this.segments.length; a++){
-        //if(this.segments[a].x === this.head.x && this.segments[a].x === this.head.y){
-        //  gameState = 3;
-      //  }
-    //  }
-    //}
+
     if(x > 0 && x < width && y > 0 && y < height){
       this.head.add(this.vel);
     }else{
