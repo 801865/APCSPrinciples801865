@@ -33,7 +33,7 @@ function draw(){
     playGame();
   }else if(gameState === 3){
     endGame();
-  }//checks which game screen the program should be in
+  }//checks which game screen the program should be run
 }//end of draw
 
 function startGame(){
@@ -80,6 +80,32 @@ function endGame(){
     translate(0, 100);
     fill(250, 250, 250);
     text("Press the reload button to try again.", 10, 20);
+    translate(0, 100);
+    fill(250, 250, 250);
+    if(score <= 4){
+      text(score + " points? You can do better.", 10, 20);
+    }else if(score >= 5 && score <= 10){
+      text(score + " points? Nice.", 10, 20);
+    }else if(score >= 11 && score <= 30){
+      text(score + " points? Good job.", 10, 20);
+    }else if(score >= 31 && score <= 50){
+      text(score + " points? Great job!", 10, 20);
+    }else if(score >= 51 && score <= 70){
+      text(score + " points? Incredible!", 10, 20);
+    }else if(score >= 71 && score <= 80){
+      text(score + " points? Excelent!", 10, 20);
+    }else if(score >= 81 && score <= 99){
+      text(score + " points? You're a pro!", 10, 20);
+    }else if(score >= 100){
+      text(score + " points!!! You're the ol' might Snake God.", 10, 20);
+    }
+    translate(0, 100);
+    fill(250, 250, 250);
+    if(score === 0){
+      text("Can you do " + (score + 1) + "?", 10, 20);
+    }else{
+      text("Can you do " + (score*2) + "?", 10, 20);
+    }
   pop();
 }// end screen for game
 
@@ -114,4 +140,4 @@ function keyPressed(){
     snake.vel = createVector(0, numCol);
     console.log("down arrow " + numCol);
   }
-}//movement
+}//movement for snake
