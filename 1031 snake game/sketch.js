@@ -98,14 +98,14 @@ function endGame(){
       text(score + " points? You're a pro!", 10, 20);
     }else if(score >= 100){
       text(score + " points!!! You're the ol' might Snake God.", 10, 20);
-    }
+    }//specail text based on how many points earned
     translate(0, 100);
     fill(250, 250, 250);
     if(score === 0){
       text("Can you do " + (score + 1) + "?", 10, 20);
     }else{
       text("Can you do " + (score*2) + "?", 10, 20);
-    }
+    }//code of encouragement
   pop();
 }// end screen for game
 
