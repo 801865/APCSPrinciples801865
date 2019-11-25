@@ -18,7 +18,7 @@ function setup() {
   numCol = width / snakeWidth;
   numRow = height / snakeWidth;
   fill(200, 30, 150);
-  frameRate(5);
+  frameRate(6);
   loadSnake();
   loadFood();// loads the objects of the game(snake, food, button)
   loadButton();
@@ -52,6 +52,7 @@ function startGame(){
     text('Use the arrow keys to contol the snake(green) in order to get an apple(red).', 10, 20);
     translate(0, 25);
     text("If you crash into the wall or the tail of the snake, it's game over!", 10, 20);
+    //rules of game above
   pop();
   button.run();
 }// start screen of game
@@ -80,6 +81,7 @@ function endGame(){
     translate(0, 100);
     fill(250, 250, 250);
     text("Press the reload button to try again.", 10, 20);
+    //end game text above
     translate(0, 100);
     fill(250, 250, 250);
     if(score <= 4){
@@ -97,7 +99,7 @@ function endGame(){
     }else if(score >= 81 && score <= 99){
       text(score + " points? You're a pro!", 10, 20);
     }else if(score >= 100){
-      text(score + " points!!! You're the ol' might Snake God.", 10, 20);
+      text(score + " points!!! You're the ol' mighty Snake God.", 10, 20);
     }//specail text based on how many points earned
     translate(0, 100);
     fill(250, 250, 250);
@@ -126,18 +128,14 @@ function loadButton(){
 function keyPressed(){
   if(keyCode === LEFT_ARROW){
     snake.vel = createVector(-numCol, 0);
-    console.log("Left arrow " + -numCol);
   }
   if(keyCode === RIGHT_ARROW){
     snake.vel = createVector(numCol, 0);
-    console.log("Right arrow " + numCol);
   }
   if(keyCode === UP_ARROW){
     snake.vel = createVector(0, -numCol);
-    console.log("Up arrow " + -numCol);
   }
   if(keyCode === DOWN_ARROW){
     snake.vel = createVector(0, numCol);
-    console.log("down arrow " + numCol);
   }
 }//movement for snake

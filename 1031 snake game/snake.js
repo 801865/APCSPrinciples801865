@@ -42,7 +42,7 @@ class Snake{
   render(){
     fill(0, 255, 0);
     rect(this.head.x, this.head.y, this.w, this.h);
-    fill(0, 100, 0);
+    fill(0, 150, 0);
     for(var i = 0; i < this.segments.length; i++){
       rect(this.segments[i].x, this.segments[i].y, this.w, this.h);
     }//creates new segment
