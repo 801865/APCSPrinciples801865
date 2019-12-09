@@ -1,15 +1,14 @@
 //  Danny Ramirez
-// 	10/23/19
+// 	12/09/19
 //  This is a comment
 //  The setup function function is called once when your program begins\
 var balls = [];
 var numBalls = 10;
-var l = 0;
 var i = 0;
 var j = 0;
 var temp = 0;
 var ballX = 0;
-var ballY = 0;
+var ballY = 400;
 
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -26,16 +25,18 @@ function draw(){
 }
 
 function loadBalls(num){
+
   for(l = 0; l < num; l++){
-    balls[l] = new Ball(ballX = ballX + 50, ballY = ballY + 50, 50, color(random(1, 255), 0, 0));
-  }//sets the settings for the bars
-}//end of bars
+    ballX = ballX + 75;
+    balls[l] = new Ball(ballX, ballY, 50, color(random(50, 255), 0, 0));
+  }//sets the parameters of ball
+}//end of loadBalls
 
 function runBalls(num){
-  for(l = 0; l < num; l++){
+  for(var l = 0; l < num; l++){
     balls[l].render();
-  }//makes the bars
-}//end of runBars
+  }//makes the balls
+}//end of runBalls
 
 function bubbleSort(){
   for(j = 0; j < balls.length - 1; j++){
