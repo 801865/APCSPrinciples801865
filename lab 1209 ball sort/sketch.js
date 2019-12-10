@@ -4,8 +4,6 @@
 //  The setup function function is called once when your program begins\
 var balls = [];
 var numBalls = 10;
-var i = 0;
-var j = 0;
 var temp = 0;
 var ballX = 0;
 var ballY = 400;
@@ -22,11 +20,12 @@ function draw(){
   background(0, 0, 0);
   runBalls(numBalls);
   bubbleSort();
+  runBalls(numBalls);
 }
 
 function loadBalls(num){
 
-  for(l = 0; l < num; l++){
+  for(var l = 0; l < num; l++){
     ballX = ballX + 75;
     balls[l] = new Ball(ballX, ballY, 50, color(random(50, 255), 0, 0));
   }//sets the parameters of ball
@@ -39,11 +38,12 @@ function runBalls(num){
 }//end of runBalls
 
 function bubbleSort(){
-  for(j = 0; j < balls.length - 1; j++){
+  for(var j = 0; j < balls.length - 1; j++){
     if(balls[j].clr > balls[j + 1].clr){
       swap(balls, j, j + 1);
     }//check for swap
   }// j loop
+  console.log("end");
 }//end of bubbleSort
 
 function swap(balls, j, j2){
